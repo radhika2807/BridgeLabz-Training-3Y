@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paradise Resort</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>🌴</span>
+        <div>
+            <strong>PARADISE</strong>
+            <small>RESORT & SPA</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button class="booking-nav-btn" onclick="openMyBookings()">
+        My Booking
+    </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="small-title">WELCOME TO PARADISE</p>
+
+        <h1>
+            Your Perfect
+            <span>Escape</span>
+        </h1>
+
+        <p class="hero-text">
+            Experience comfort, luxury and unforgettable moments
+            in the heart of nature.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH BOX -->
+
+    <div class="availability-box">
+
+        <div class="input-group">
+            <label>CHECK-IN</label>
+            <input type="date" id="checkIn">
+        </div>
+
+        <div class="input-group">
+            <label>CHECK-OUT</label>
+            <input type="date" id="checkOut">
+        </div>
+
+        <div class="input-group">
+            <label>GUESTS</label>
+            <select id="guests">
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+            </select>
+        </div>
+
+        <button class="availability-btn" onclick="checkAvailability()">
+            Check Availability →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ROOMS ================= -->
+
+<section class="rooms-section" id="rooms">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="section-label">STAY WITH US</p>
+
+            <h2>
+                Find Your Perfect
+                <span>Room</span>
+            </h2>
+        </div>
+
+        <p class="section-description">
+            Choose from our carefully designed rooms and suites,
+            created to make your stay comfortable and memorable.
+        </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="room-filters">
+
+        <button class="filter-btn active" onclick="filterRooms('all', this)">
+            All Rooms
+        </button>
+
+        <button class="filter-btn" onclick="filterRooms('Standard', this)">
+            Standard
+        </button>
+
+        <button class="filter-btn" onclick="filterRooms('Deluxe', this)">
+            Deluxe
+        </button>
+
+        <button class="filter-btn" onclick="filterRooms('Premium', this)">
+            Premium
+        </button>
+
+        <button class="filter-btn" onclick="filterRooms('Suite', this)">
+            Luxury Suite
+        </button>
+
+    </div>
+
+
+    <!-- ROOM CARDS -->
+
+    <div class="rooms-grid" id="roomsContainer"></div>
+
+</section>
+
+
+<!-- ================= FACILITIES ================= -->
+
+<section class="facilities-section" id="facilities">
+
+    <div class="section-heading center">
+
+        <p class="section-label">EVERYTHING YOU NEED</p>
+
+        <h2>
+            Resort
+            <span>Facilities</span>
+        </h2>
+
+        <p>
+            Everything you need for a relaxing and memorable stay.
+        </p>
+
+    </div>
+
+
+    <div class="facilities-grid">
+
+        <div class="facility-card">
+            <div class="facility-icon">🏊</div>
+            <h3>Swimming Pool</h3>
+            <p>Relax beside our beautiful infinity pool.</p>
+        </div>
+
+        <div class="facility-card">
+            <div class="facility-icon">🍽️</div>
+            <h3>Restaurant</h3>
+            <p>Enjoy delicious Indian and international cuisine.</p>
+        </div>
+
+        <div class="facility-card">
+            <div class="facility-icon">💆</div>
+            <h3>Spa & Wellness</h3>
+            <p>Refresh your body and mind with our spa.</p>
+        </div>
+
+        <div class="facility-card">
+            <div class="facility-icon">📶</div>
+            <h3>Free Wi-Fi</h3>
+            <p>Stay connected with complimentary high-speed Wi-Fi.</p>
+        </div>
+
+        <div class="facility-card">
+            <div class="facility-icon">🚗</div>
+            <h3>Free Parking</h3>
+            <p>Safe and convenient parking for our guests.</p>
+        </div>
+
+        <div class="facility-card">
+            <div class="facility-icon">🛎️</div>
+            <h3>24/7 Service</h3>
+            <p>Our team is always available for you.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section" id="about">
+
+    <div class="about-image"></div>
+
+    <div class="about-content">
+
+        <p class="section-label">ABOUT PARADISE</p>
+
+        <h2>
+            A place where
+            <span>memories begin.</span>
+        </h2>
+
+        <p>
+            Paradise Resort combines modern luxury with the warmth
+            of Indian hospitality. Whether you're planning a family
+            vacation, a romantic getaway or a peaceful weekend,
+            we have something special waiting for you.
+        </p>
+
+        <div class="about-stats">
+
+            <div>
+                <strong>48+</strong>
+                <span>Rooms</span>
+            </div>
+
+            <div>
+                <strong>4.8</strong>
+                <span>Guest Rating</span>
+            </div>
+
+            <div>
+                <strong>15+</strong>
+                <span>Years Experience</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🌴 PARADISE RESORT
+    </div>
+
+    <p>
+        Luxury stays. Beautiful memories.
+    </p>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#about">About</a>
+    </div>
+
+    <small>
+        © 2026 Paradise Resort. All rights reserved.
+    </small>
+
+</footer>
+
+
+<!-- ================================================= -->
+<!-- ROOM DETAILS MODAL -->
+<!-- ================================================= -->
+
+<div class="modal" id="roomModal">
+
+    <div class="modal-content room-details">
+
+        <button class="close-btn" onclick="closeModal('roomModal')">
+            ×
+        </button>
+
+        <div id="roomDetailsContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BOOKING MODAL -->
+<!-- ================================================= -->
+
+<div class="modal" id="bookingModal">
+
+    <div class="modal-content booking-modal">
+
+        <button class="close-btn" onclick="closeModal('bookingModal')">
+            ×
+        </button>
+
+        <p class="section-label">RESERVE YOUR STAY</p>
+
+        <h2>Complete Your <span>Booking</span></h2>
+
+        <div id="bookingRoomInfo"></div>
+
+
+        <div class="booking-form">
+
+            <div class="form-row">
+
+                <div>
+                    <label>Full Name</label>
+                    <input type="text" id="customerName" placeholder="Enter your name">
+                </div>
+
+                <div>
+                    <label>Phone Number</label>
+                    <input type="tel" id="customerPhone" placeholder="10-digit mobile number">
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div>
+                    <label>Check-in</label>
+                    <input type="date" id="bookingCheckIn">
+                </div>
+
+                <div>
+                    <label>Check-out</label>
+                    <input type="date" id="bookingCheckOut">
+                </div>
+
+            </div>
+
+
+            <div>
+                <label>Number of Guests</label>
+
+                <select id="bookingGuests">
+
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="price-summary" id="priceSummary"></div>
+
+
+            <button class="continue-btn" onclick="continueToPayment()">
+                Continue to Payment →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- PAYMENT MODAL -->
+<!-- ================================================= -->
+
+<div class="modal" id="paymentModal">
+
+    <div class="modal-content payment-modal">
+
+        <button class="close-btn" onclick="closeModal('paymentModal')">
+            ×
+        </button>
+
+        <p class="section-label">SECURE PAYMENT</p>
+
+        <h2>Complete <span>Payment</span></h2>
+
+
+        <div id="paymentSummary"></div>
+
+
+        <div class="payment-methods">
+
+            <button class="payment-method active" onclick="selectPayment('UPI', this)">
+                📱 UPI
+            </button>
+
+            <button class="payment-method" onclick="selectPayment('Card', this)">
+                💳 Card
+            </button>
+
+            <button class="payment-method" onclick="selectPayment('Net Banking', this)">
+                🏦 Net Banking
+            </button>
+
+        </div>
+
+
+        <div id="paymentFields">
+
+            <label>UPI ID</label>
+
+            <input
+                type="text"
+                id="upiId"
+                placeholder="example@upi"
+            >
+
+        </div>
+
+
+        <button class="pay-btn" onclick="makePayment()">
+            Pay Now
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CONFIRMATION MODAL -->
+<!-- ================================================= -->
+
+<div class="modal" id="confirmationModal">
+
+    <div class="modal-content confirmation">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>Booking <span>Confirmed!</span></h2>
+
+        <p>
+            Your reservation has been successfully confirmed.
+        </p>
+
+        <div id="confirmationDetails"></div>
+
+        <button class="continue-btn" onclick="closeModal('confirmationModal')">
+            Done
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- MY BOOKINGS MODAL -->
+<!-- ================================================= -->
+
+<div class="modal" id="myBookingsModal">
+
+    <div class="modal-content bookings-modal">
+
+        <button class="close-btn" onclick="closeModal('myBookingsModal')">
+            ×
+        </button>
+
+        <p class="section-label">YOUR RESERVATIONS</p>
+
+        <h2>My <span>Bookings</span></h2>
+
+        <div id="myBookingsContent"></div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
